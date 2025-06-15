@@ -1,12 +1,13 @@
-/* CSS Reset và Base Styles */
 :root {
     /* Light Mode Colors */
     --bg-primary: #f8f9fa;
     --bg-secondary: #fff;
-    --text-primary: #333;
-    --text-secondary: #666;
+    --text-primary: #1a1a1a;
+    --text-secondary: #343131;
+    --box-background: #f8f9fa;
+    --box-background-secondary: #fff;
     --text-muted: #888;
-    --accent-color: #667eea;
+    --accent-color: #2e3e80;
     --accent-secondary: #764ba2;
     --border-color: #e9ecef;
     --shadow-light: rgba(0, 0, 0, 0.1);
@@ -21,10 +22,12 @@
 [data-theme="dark"] {
     --bg-primary: #1a1a1a;
     --bg-secondary: #2d2d2d;
-    --text-primary: #e0e0e0;
-    --text-secondary: #b0b0b0;
+    --text-primary: #ffffff;
+    --text-secondary: #d5d5d5;
+    --box-background: #383652;
+    --box-background-secondary: #292452;
     --text-muted: #888;
-    --accent-color: #7c3aed;
+    --accent-color: #83abdb;
     --accent-secondary: #a855f7;
     --border-color: #404040;
     --shadow-light: rgba(0, 0, 0, 0.3);
@@ -85,47 +88,6 @@ body {
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-/* Loading Screen - Màn hình tải */
-.loading-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    transition: opacity 0.5s ease;
-}
-
-.loading-screen.hidden {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.loading-content {
-    text-align: center;
-    color: white;
-}
-
-.loading-spinner {
-    width: 50px;
-    height: 50px;
-    border: 4px solid rgba(255, 255, 255, 0.3);
-    border-top: 4px solid white;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin: 0 auto 1rem;
-}
-
-/* Animation xoay cho loading spinner */
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
 /* Banner Section - Phần banner chính */
 .banner {
     height: 100vh;
@@ -144,7 +106,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('img/background.jpg') center/cover;
+    background: url('/img/background.jpg') center/cover;
     opacity: 0.1;
     z-index: 1;
 }
@@ -523,7 +485,7 @@ body {
 }
 
 .about-text {
-    background: var(--bg-secondary);
+    background: var(--box-background);
     padding: 2.5rem;
     border-radius: 15px;
     box-shadow: 0 5px 20px var(--shadow-light);
@@ -566,7 +528,7 @@ body {
 }
 
 .info-card {
-    background: var(--bg-secondary);
+    background: var(--box-background-secondary);
     padding: 1.5rem;
     border-radius: 15px;
     box-shadow: 0 5px 20px var(--shadow-light);
@@ -649,7 +611,7 @@ body {
 
 .timeline-content {
     flex: 1;
-    background: var(--bg-primary);
+    background: var(--box-background);
     padding: 2rem;
     border-radius: 15px;
     margin: 0 2rem;
@@ -688,7 +650,7 @@ body {
 }
 
 .career-card {
-    background: var(--bg-secondary);
+    background: var(--box-background-secondary);
     padding: 2.5rem;
     border-radius: 15px;
     box-shadow: 0 5px 20px var(--shadow-light);
@@ -726,7 +688,7 @@ body {
 }
 
 .hobby-card {
-    background: var(--bg-secondary);
+    background: var(--box-background-secondary);
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 5px 20px var(--shadow-light);
@@ -765,7 +727,7 @@ body {
 
 .skills-col,
 .lang-col {
-    background: var(--bg-secondary);
+    background: var(--box-background);
     padding: 2.5rem;
     border-radius: 15px;
     box-shadow: 0 5px 20px var(--shadow-light);
@@ -820,42 +782,53 @@ body {
     color: rgb(198, 198, 57);
 }
 
-/* Certificates Section - Phần chứng chỉ */
-.cert-grid {
+/* study Section - Phần Học tập */
+.study-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
 }
 
-.cert-card {
-    background: var(--bg-secondary);
-    padding: 2rem;
+.study-card {
+    background: var(--box-background);
+    padding: 0.5rem;
     border-radius: 15px;
-    box-shadow: 0 5px 20px var(--shadow-light);
+    box-shadow: 0 5px 20px var(--shadow-dark);
     text-align: center;
     transition: var(--transition);
+    height: 85px;
 }
 
-.cert-card:hover {
+.study-card:hover {
     transform: translateY(-5px) rotateY(5deg);
     box-shadow: 0 15px 40px var(--shadow-medium);
 }
 
-.cert-icon {
-    font-size: 3rem;
-    color: var(--accent-color);
-    margin-bottom: 1rem;
-}
-
-.cert-card h3 {
+.study-card h3 {
     font-size: 1.2rem;
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.15rem;
     color: var(--text-primary);
 }
 
-.cert-card p {
-    color: var(--text-secondary);
+.studying {
+    font-weight: 600;
+    display: inline-block;
+    background: #fff3cd;
+    border-radius: 999px;
+    padding: 0.1rem 0.6rem;
+    border: 1px solid #fff3cd;
+    color: #ff9800;
+}
+
+.studied {
+    font-weight: 600;
+    display: inline-block;
+    background: #e0f7fa;
+    border-radius: 999px;
+    padding: 0.1rem 0.9rem;
+    border: 1px solid #e0f7fa;
+    color: #2ec4b6;
 }
 
 /* Projects Section - Phần dự án */
@@ -866,7 +839,7 @@ body {
 }
 
 .project-card {
-    background: var(--bg-secondary);
+    background: var(--box-background-secondary);
     border-radius: 15px;
     box-shadow: 0 5px 20px var(--shadow-light);
     overflow: hidden;
@@ -960,7 +933,7 @@ body {
     align-items: center;
     margin-bottom: 2rem;
     padding: 1.5rem;
-    background: var(--bg-secondary);
+    background: var(--box-background);
     border-radius: 15px;
     box-shadow: 0 5px 20px var(--shadow-light);
     transition: var(--transition);
@@ -971,7 +944,7 @@ body {
     box-shadow: 0 10px 30px var(--shadow-medium);
 }
 
-.contact-icon {
+.contact -ion-icon {
     font-size: 2rem;
     color: var(--accent-color);
     margin-right: 1.5rem;
@@ -990,7 +963,7 @@ body {
 
 /* Contact Form - Form liên hệ */
 .contact-form-box {
-    background: var(--bg-secondary);
+    background: var(--box-background-secondary);
     padding: 2.5rem;
     border-radius: 15px;
     box-shadow: 0 5px 20px var(--shadow-light);
@@ -1052,7 +1025,7 @@ body {
 }
 
 .contact-social {
-    background: var(--bg-secondary);
+    background: var(--bg-secondary );
     padding: 2.5rem;
     border-radius: 15px;
     box-shadow: 0 5px 20px var(--shadow-light);
@@ -1099,7 +1072,7 @@ body {
 }
 
 .github-btn {
-    background: #333;
+    background: #4d4d4d;
 }
 
 .facebook-btn {
@@ -1414,7 +1387,7 @@ body {
     .info-card,
     .career-card,
     .hobby-card,
-    .cert-card {
+    .study-card {
         padding: 1.5rem;
     }
     
@@ -1426,7 +1399,7 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
     
-    .cert-grid {
+    .study-grid {
         grid-template-columns: 1fr;
     }
     
